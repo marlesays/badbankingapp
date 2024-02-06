@@ -39,11 +39,10 @@ function BalanceForm(props){
     .then(response => response.text())
     .then(text => {
         try {
-            const data = JSON.parse(text);
-            props.setStatus(text);
-            props.setShow(false);
-            setBalance(user.balance);
-            console.log('JSON:', data);
+          const data = JSON.parse(text);
+          props.setStatus("\n Your balance is $" + data.balance + ".");
+          props.setShow(false);
+          setBalance(loggedInUser.balance);
         } catch(err) {
             props.setStatus(text)
             console.log('err:', text);
