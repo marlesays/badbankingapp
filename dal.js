@@ -150,7 +150,7 @@
 const { MongoClient } = require('mongodb');
 
 // Connection URL
-const url = "mongodb+srv://marlesays:HelloMeow1#@atlascluster.uomnlq7.mongodb.net/?retryWrites=true&w=majority";
+const url = "mongodb+srv://marlesays:HelloMeow1%23@atlascluster.uomnlq7.mongodb.net/?retryWrites=true&w=majority";
 // Replace '<password>' with the actual password for your MongoDB Atlas user
 
 // Database Name
