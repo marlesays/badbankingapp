@@ -4,10 +4,10 @@ var cors    = require('cors');
 var dal     = require('./dal.js');
 //var dal    = require('./dalAUTHENTICATION.js');
 const e = require('express');
-const server = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(server, () => {
-    console.log('Running on port: ${server}');
+app.listen(PORT, () => {
+    console.log('Running on port: ${PORT}');
 });
 
 // used to serve static files from public directory
