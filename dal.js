@@ -30,22 +30,52 @@
 
 
 
+const { MongoClient } = require('mongodb');
+
+// Connection URL
+const url = "mongodb+srv://marlesays:HelloMeow1#@atlascluster.uomnlq7.mongodb.net/?retryWrites=true&w=majority";
+// Replace '<password>' with the actual password for your MongoDB Atlas user
+
+// Database Name
+const db = 'myproject';
+
+// Create a new MongoClient
+const client = new MongoClient(url, { useUnifiedTopology: true });
+
+async function connectToMongoDB() {
+    try {
+        // Connect the client to the server
+        await client.connect();
+
+        console.log("Connected successfully to db server");
+
+        // Connect to the specific database
+        return client.db(db);
+    } catch (err) {
+        console.error("Error connecting to the database:", err);
+        throw err;
+    }
+}
+
+module.exports = connectToMongoDB;
 
 
 
 //
-const MongoClient = require('mongodb').MongoClient;
-const url         = "mongodb+srv://marlesays:<password>@atlascluster.uomnlq7.mongodb.net/?retryWrites=true&w=majority";
-// const url         = 'mongodb://localhost:5000';
-let db            = null;
+// const MongoClient = require('mongodb').MongoClient;
+// const url         = "mongodb+srv://marlesays:<password>@atlascluster.uomnlq7.mongodb.net/?retryWrites=true&w=majority";
+// // const url         = 'mongodb://localhost:5000';
+// let db            = null;
  
-// connect to mongo
-MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
-    console.log("Connected successfully to db server");
+// // connect to mongo
+// MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
+//     console.log("Connected successfully to db server");
 
-    // connect to myproject database
-    db = client.db('myproject');
-});
+//     // connect to myproject database
+//     db = client.db('myproject');
+// });
+
+
 
 // create user account
 function create(name, email, password){
